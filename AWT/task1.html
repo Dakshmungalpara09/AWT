@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arithmetic Operations</title>
+    <style>
+      label {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="num1" placeholder="Enter number 1" onblur="performOperation('+')">
+<input type="text" id="num2" placeholder="Enter number 2" onblur="performOperation('-')">
+
+<button onclick="performOperation('+')">Add</button>
+<button onclick="performOperation('-')">Subtract</button>
+<button onclick="performOperation('*')">Multiply</button>
+<button onclick="performOperation('/')">Divide</button>
+<label id="msg"></label>
+
+<script>
+    function performOperation(operator) {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+    
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('msg').innerHTML = '* Please enter valid numbers.';
+        document.getElementById('msg').style.color = 'red';
+      } else {
+        var result;
+        if (operator === '+') {
+          result = num1 + num2;
+        } else if (operator === '-') {
+          result = num1 - num2;
+        }
+    
+        document.getElementById('msg').innerHTML = 'Result: ' + result;
+        document.getElementById('msg').style.color = 'black';
+      }
+    }
+    </script>
+  </body>
+</html>
